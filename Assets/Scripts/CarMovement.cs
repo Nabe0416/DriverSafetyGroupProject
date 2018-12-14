@@ -10,7 +10,7 @@ public class CarMovement : MonoBehaviour
     public SteamVR_Action_Single tempThrottleVR; //Get the input of trigger(float) as the throttle.
     public SteamVR_Action_Boolean BrakeVR; //Get the input of trigger(bool) to reverse.
     public SteamVR_Action_Vector2 rawTempWheelVR;
-    private bool Brake; //A state.
+    private bool Brake; //
 
     [Range(0.0f, 1000.0f)]
     public float ThrottleCoefficient = 100.0f;
