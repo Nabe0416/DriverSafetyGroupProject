@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class tempWalkingSphere : MonoBehaviour {
 
@@ -35,7 +36,7 @@ public class tempWalkingSphere : MonoBehaviour {
     {
         if (usingVR)
         {
-            walkingValue = tempWalkingVR.GetAxis(SteamVR_Input_Sources.Touchpad);
+            //walkingValue = tempWalkingVR.GetAxis(SteamVR_Input_Sources.Touchpad);
           
         }
         else
