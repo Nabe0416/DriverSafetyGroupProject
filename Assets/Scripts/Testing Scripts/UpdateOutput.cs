@@ -17,6 +17,7 @@ public class UpdateOutput : MonoBehaviour {
 
     private int Quadrant;
     private float value;
+    private float result;
 
     private void Start()
     {
@@ -66,8 +67,12 @@ public class UpdateOutput : MonoBehaviour {
             else
             {
                 value = eulerAng.x;
-                
+
             }
+        }
+        else if (eulerAng.y == 270 && eulerAng.z == 90 && eulerAng.x == 0)
+        {
+            value = 0;
         }
         else if (eulerAng.x == 90)
         {
@@ -85,10 +90,20 @@ public class UpdateOutput : MonoBehaviour {
             }
         }
 
+        float preValue = value;
+        if (value >= preValue)
+        {
+            result = value;
+        }
+        else
+        {
+            result = -value;
+        }
+
         
 
-        //return eulerAng;
-        return value;
+        //print(eulerAng);
+        return result;
         
     }
 }

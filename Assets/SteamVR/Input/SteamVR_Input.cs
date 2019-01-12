@@ -755,8 +755,6 @@ namespace Valve.VR
         }
 
         private static bool checkingSetup = false;
-        internal static object _default;
-
         private static void CheckSetup()
         {
             if (checkingSetup == false && (SteamVR_Input_References.instance.actionSetObjects == null || SteamVR_Input_References.instance.actionSetObjects.Length == 0 || SteamVR_Input_References.instance.actionSetObjects.Any(set => set != null) == false))
