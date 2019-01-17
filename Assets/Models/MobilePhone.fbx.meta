@@ -1,15 +1,16 @@
 fileFormatVersion: 2
-guid: 5aa1bf3398dcaad4baeeab30b63c8f7f
+guid: 6735e329e0160dd4c9f2a1b0209b83aa
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: Material
+    2100002: Material.001
+    2100004: Glass
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Steeringwheel
-    2186277476908879412: ImportLogs
+    4300000: phone
   externalObjects: {}
   materials:
     importMaterials: 1

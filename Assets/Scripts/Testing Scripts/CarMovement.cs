@@ -7,8 +7,8 @@ public class CarMovement : MonoBehaviour
 {
     public bool usingVR = false; //Use to change different control mode between NO-VR and VR;
 
-    private GameObject CamVR;//CameraRig.
-    private GameObject CamNonVR;//Main camera.
+    public GameObject CamVR;//CameraRig.
+    public GameObject CamNonVR;//Main camera.
 
     public SteamVR_Action_Single tempThrottleVR; //Get the input of trigger(float) as the throttle.
     public SteamVR_Action_Boolean BrakeVR; //Get the input of trigger(bool) to reverse.
@@ -28,24 +28,27 @@ public class CarMovement : MonoBehaviour
     private WheelCollider WheelBL;
     private WheelCollider WheelBR;
 
+    private void Awake()
+    {
+
+        if (usingVR)
+        {
+            CamVR.SetActive(true);
+            CamNonVR.SetActive(false);
+        }
+        else
+        {
+            CamVR.SetActive(false);
+            CamNonVR.SetActive(true);
+        }
+    }
+
     private void Start()
     {
         WheelFL = GameObject.Find("FLWheel").GetComponent<WheelCollider>();
         WheelFR = GameObject.Find("FRWheel").GetComponent<WheelCollider>();
         WheelBL = GameObject.Find("BLWheel").GetComponent<WheelCollider>();
         WheelBR = GameObject.Find("BRWheel").GetComponent<WheelCollider>();
-
-        CamVR = GameObject.Find("[CameraRig]");
-        CamNonVR = GameObject.Find("Main Camera");
-        if (usingVR)
-        {
-            CamVR.SetActive(true);
-            CamNonVR.SetActive(false);
-        } else
-        {
-            CamVR.SetActive(false);
-            CamNonVR.SetActive(true);
-        }
     }
 
     private void Update()
