@@ -5,10 +5,6 @@ using Valve.VR;
 
 public class playerMovementHandler : MonoBehaviour {
 
-    public bool usingVR = false;
-    public GameObject VRcam;
-    public GameObject cam;
-
     public SteamVR_Action_Vector2 touchPad;
 
     [SerializeField]
@@ -20,16 +16,6 @@ public class playerMovementHandler : MonoBehaviour {
 
     private void Awake()
     {
-        if (usingVR)
-        {
-            VRcam.SetActive(true);
-            cam.SetActive(false);
-        }
-        else
-        {
-            VRcam.SetActive(false);
-            cam.SetActive(true);
-        }
     }
 
 
@@ -52,17 +38,10 @@ public class playerMovementHandler : MonoBehaviour {
     {
         float turning;
         float walking;
-        if (usingVR)
-        {
-            Vector2 input = touchPad.GetAxis(SteamVR_Input_Sources.Any);
-            turning = input.x;
-            walking = input.y;
-        }
-        else
-        {
-            turning = Input.GetAxis("Horizontal");
-            walking = Input.GetAxis("Vertical");
-        }
+        Vector2 input = touchPad.GetAxis(SteamVR_Input_Sources.Any);
+        turning = input.x;
+        walking = input.y;
+
 
 
         rb.MovePosition(rb.transform.position + transform.forward * Time.deltaTime * moveSpeed * walking);

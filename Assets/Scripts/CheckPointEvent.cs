@@ -10,15 +10,17 @@ public class CheckPointEvent : MonoBehaviour
     public List<GameObject> carList = new List<GameObject>();
     public Transform destroyPoint;
 
+    public static CheckPointEvent instance;
+
     private int carAmount;
 
     private void Awake()
     {
         carAmount = spawnPoint.Count;
-        InstantiateCars();
+        instance = this;
     }
 
-    void InstantiateCars()
+    public void InstantiateCars()
     {
         for(int i = 0; i < carAmount; i++)
         {
@@ -28,5 +30,10 @@ public class CheckPointEvent : MonoBehaviour
             car.GetComponent<NavMeshAgent>().SetDestination(destroyPoint.position);
             carList.Add(car);
         }
+    }
+
+    void CrashPlayer()
+    {
+
     }
 }
