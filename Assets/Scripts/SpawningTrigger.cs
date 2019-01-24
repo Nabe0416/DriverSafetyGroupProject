@@ -8,11 +8,13 @@ public class SpawningTrigger : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!isTriggered)
+        if(other.gameObject.layer == 11)
         {
-            isTriggered = true;
-            CheckPointEvent.instance.InstantiateCars();
-            print("1");
+            if (!isTriggered)
+            {
+                isTriggered = true;
+                CheckPointEvent.instance.InstantiateCars();
+            }
         }
     }
 }
